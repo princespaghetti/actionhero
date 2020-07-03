@@ -20,6 +20,12 @@ Summit Route discusses the feature in this [post](https://summitroute.com/blog/2
 
 As discussed in the above post ``export AWS_CSM_ENABLED=true`` must be run in the shell or set in a profile where the tool using the SDK will be run. For example if you're using terraform it would need to be exported in the shell that the plan/apply would be run from
 
+The environment variable ``AWS_CSM_PORT`` can also be used to override the port CSM actions are sent to, and what port Action Hero listens on. This would need to be exported in both shells if used.
+
+## Installation
+
+Binaries are available from the [releases](https://github.com/princespaghetti/actionhero/releases) page
+
 ## Running Action Hero
 
 In a seperate terminal from where you are using the SDK run the binary

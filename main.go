@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/signal"
 	"runtime"
+	"strconv"
 	"strings"
 	"syscall"
 )
@@ -63,13 +64,23 @@ func SetupCloseHandler() {
 
 func main() {
 
+	var port = 31000
+	var err error
+	if os.Getenv("AWS_CSM_PORT") != "" {
+		port, err = strconv.Atoi(os.Getenv("AWS_CSM_PORT"))
+		if err != nil {
+			fmt.Println("Could not parse value of AWS_CSM_PORT Exiting...")
+			os.Exit(1)
+		}
+	}
 	addr := net.UDPAddr{
-		Port: 31000,
+		Port: port,
 		IP:   net.IP{127, 0, 0, 1},
 	}
 	connection, err := net.ListenUDP("udp", &addr)
 	if err != nil {
-		panic(err)
+		fmt.Println("Could not start Action here on the specified port, Exiting...")
+		os.Exit(1)
 	}
 	fmt.Println("Action Hero Starting...")
 	SetupCloseHandler()
