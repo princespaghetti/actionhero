@@ -1,1 +1,29 @@
-# actionhero
+# Action Hero
+
+## What is Action Hero?
+
+Action Hero is a sidecar style utility to assist with creating least privilege IAM Policies for AWS.
+
+## Why is it needed?
+
+Commonly developers begin creating infrastructure as code with more permissive roles that have administrative access to rapidly iterate. However, trying to create a more finely scoped set of permissions can be painful and time consuming.
+
+Action Hero provides a means to capture all required permissions during the more permissive iterations to make it easier to create an IAM role with just the required permissions.
+
+## How does it work?
+
+Action Hero uses a feature of the AWS SDK known as Client Side Monitoring. This feature sends AWS API calls to a local udp port (31000 by default)
+
+Summit Route discusses the feature in this [post](https://summitroute.com/blog/2020/05/25/client_side_monitoring/) (which was the inspiration for this tool)
+
+## Prerequisites
+
+As discussed in the above post ``export AWS_CSM_ENABLED=true`` must be run in the shell or set in a profile where the tool using the SDK will be run. For example if you're using terraform it would need to be exported in the shell that the plan/apply would be run from
+
+## Running Action Hero
+
+In a seperate terminal from where you are using the SDK run the binary
+
+``./actionhero``
+
+Ctrl+C can be used to terminate the process safely
