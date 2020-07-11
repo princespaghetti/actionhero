@@ -33,3 +33,7 @@ In a seperate terminal from where you are using the SDK run the binary
 ``./actionhero``
 
 Ctrl+C can be used to terminate the process safely
+
+## Walkthrough
+
+Please see this [blog post](https://dev.to/prince_of_pasta/action-hero-to-the-rescue-creating-least-privilege-aws-iam-policies-53o2) for sample usage of the tool.
