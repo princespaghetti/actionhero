@@ -26,6 +26,8 @@ The environment variable ``AWS_CSM_PORT`` can also be used to override the port 
 
 Binaries are available from the [releases](https://github.com/princespaghetti/actionhero/releases) page
 
+A docker image is also available from [docker hub](https://hub.docker.com/r/princespaghetti/actionhero)
+
 ## Running Action Hero
 
 In a seperate terminal from where you are using the SDK run the binary
