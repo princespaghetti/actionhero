@@ -32,10 +32,9 @@ In a seperate terminal from where you are using the SDK run the binary
 
 ``./actionhero``
 
-Alternatively you can use a docker run command
+Alternatively you can use a docker run command (Please note this requires [authentication](https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)). This image will be moved to docker hub shortly to avoid this issue
 
 ``docker run -e "IN_DOCKER=True" -p 127.0.0.1:31000:31000/udp --rm docker.pkg.github.com/princespaghetti/actionhero/actionhero:latest``
-
 
 Ctrl+C can be used to terminate the process safely
 
