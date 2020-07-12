@@ -27,8 +27,8 @@ dockers:
     # GOARCH of the built binary that should be used.
     goarch: amd64
     image_templates:
-    - "docker.pkg.github.com/princespaghetti/actionhero/actionhero:latest"
-    - "docker.pkg.github.com/princespaghetti/actionhero/actionhero:{{ .Tag }}"
+    - "docker.io/princespaghetti/actionhero:latest"
+    - "docker.io/princespaghetti/actionhero:{{ .Tag }}"
 checksum:
   name_template: 'checksums.txt'
 snapshot:
