@@ -18,6 +18,17 @@ archives:
     windows: Windows
     386: i386
     amd64: x86_64
+dockers:
+  -
+    binaries:
+    - actionhero
+    # GOOS of the built binary that should be used.
+    goos: linux
+    # GOARCH of the built binary that should be used.
+    goarch: amd64
+    image_templates:
+    - "docker.pkg.github.com/princespaghetti/actionhero/actionhero:latest"
+    - "docker.pkg.github.com/princespaghetti/actionhero/actionhero:{{ .Tag }}"
 checksum:
   name_template: 'checksums.txt'
 snapshot:

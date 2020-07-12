@@ -66,6 +66,10 @@ func main() {
 
 	var port = 31000
 	var err error
+	var addr = net.UDPAddr{
+		Port: port,
+		IP:   net.IP{127, 0, 0, 1},
+	}
 	if os.Getenv("AWS_CSM_PORT") != "" {
 		port, err = strconv.Atoi(os.Getenv("AWS_CSM_PORT"))
 		if err != nil {
@@ -73,9 +77,11 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	addr := net.UDPAddr{
-		Port: port,
-		IP:   net.IP{127, 0, 0, 1},
+	if os.Getenv("IN_DOCKER") == "True" {
+		addr = net.UDPAddr{
+			Port: port,
+			IP:   net.IP{0, 0, 0, 0},
+		}
 	}
 	connection, err := net.ListenUDP("udp", &addr)
 	if err != nil {
