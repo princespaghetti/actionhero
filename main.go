@@ -79,7 +79,7 @@ func main() {
 	}
 	connection, err := net.ListenUDP("udp", &addr)
 	if err != nil {
-		fmt.Println("Could not start Action here on the specified port, Exiting...")
+		fmt.Println("Could not start Action hero on the specified port, Exiting...")
 		os.Exit(1)
 	}
 	fmt.Println("Action Hero Starting...")
