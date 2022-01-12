@@ -24,15 +24,36 @@ archives:
     format: zip
 dockers:
   -
-    binaries:
-    - actionhero
     # GOOS of the built binary that should be used.
     goos: linux
     # GOARCH of the built binary that should be used.
     goarch: amd64
+    use: buildx
+    dockerfile: Dockerfile
+    build_flag_templates:
+      - "--platform=linux/amd64"
     image_templates:
-    - "docker.io/princespaghetti/actionhero:latest"
-    - "docker.io/princespaghetti/actionhero:{{ .Tag }}"
+    - "docker.io/princespaghetti/actionhero:{{ .Tag }}-amd64"
+  -
+    # GOOS of the built binary that should be used.
+    goos: linux
+    # GOARCH of the built binary that should be used.
+    goarch: arm64
+    build_flag_templates:
+      - "--platform=linux/arm64/v8"
+    use: buildx
+    dockerfile: Dockerfile
+    image_templates:
+    - "docker.io/princespaghetti/actionhero:{{ .Tag }}-arm64v8"
+docker_manifests:
+  - name_template: docker.io/princespaghetti/actionhero:{{ .Tag }}
+    image_templates:
+      - docker.io/princespaghetti/actionhero:{{ .Tag }}-amd64
+      - docker.io/princespaghetti/actionhero:{{ .Tag }}-arm64v8
+  - name_template: docker.io/princespaghetti/actionhero:latest
+    image_templates:
+      - docker.io/princespaghetti/actionhero:{{ .Tag }}-amd64
+      - docker.io/princespaghetti/actionhero:{{ .Tag }}-arm64v8
 checksum:
   name_template: 'checksums.txt'
 snapshot:
