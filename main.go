@@ -33,7 +33,7 @@ type ActionMessage struct {
 }
 
 func listen(connection *net.UDPConn, quit chan struct{}) {
-	buffer := make([]byte, 1024)
+	buffer := make([]byte, 4096)
 	n, _, err := 0, new(net.UDPAddr), error(nil)
 	var message ActionMessage
 	for err == nil {
