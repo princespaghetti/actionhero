@@ -20,7 +20,7 @@ jobs:
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Release via goreleaser
-      uses: goreleaser/goreleaser-action@v5
+      uses: goreleaser/goreleaser-action@v6
       with:
         version: latest
         args: release ${{ fromJSON('["--skip-publish --snapshot", ""]')[startsWith(github.ref, 'refs/tags/v')] }}
