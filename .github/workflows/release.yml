@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: goreleaser
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Unshallow Fetch
       run: git fetch --prune --unshallow
     - uses: actions/setup-go@v6
